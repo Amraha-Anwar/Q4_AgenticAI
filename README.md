@@ -1,4 +1,6 @@
-# 🌷 Amraha's Advanced Python & Agentic AI Learning Journey 🌷
+
+
+# 🌷 Amraha's Advanced Python & Agentic AI Learning Journey
 
 Welcome to my self-learning repository!  
 This space is dedicated to my exploration of **advanced Python concepts** and the emerging world of **Agentic AI**. It's a personal journey, but one I hope will inspire and help others along the way.
@@ -38,3 +40,5 @@ As a **developer**, I believe in learning by doing. This repo helps me:
 - Contribute to the open learning community
 
 ---
+
+
