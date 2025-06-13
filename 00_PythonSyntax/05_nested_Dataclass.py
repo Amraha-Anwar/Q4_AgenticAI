@@ -70,3 +70,35 @@ def run():
 if __name__ == "__main__":
     print("=== NESTED DATACLASS EXAMPLE ===")
     run()
+
+
+# OUTPUT 👇🏻
+# === NESTED DATACLASS EXAMPLE ===
+# Student: Amr..
+# Grade: 8th
+# Roll NO: 3073
+# Subjects: ['Computer Science', 'Physics']
+# Updated Subjects List: ['Computer Science', 'Physics', 'Chemistry']
+
+# Student JSON: 
+# {
+#   "name": "Amr..",
+#   "fatherName": "an..",
+#   "age": 43,
+#   "address": {
+#     "street": "abc street",
+#     "city": "Los Angeles",
+#     "state": "AZ",
+#     "country": "USA"
+#   },
+#   "grade": {
+#     "class_grade": "8th",
+#     "section": "Lilly"
+#   },
+#   "roll_no": 3073,
+#   "subjects": [
+#     "Computer Science",
+#     "Physics",
+#     "Chemistry"
+#   ]
+# }
