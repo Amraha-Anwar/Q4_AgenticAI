@@ -47,7 +47,6 @@ class Student:
     
 
 def demo_no_inheritance():
-    """Demonstrate the standalone approach."""
     student = Student(
         name="Alice Johnson",
         birth_date=date(2000, 5, 15),
@@ -65,6 +64,75 @@ def demo_no_inheritance():
     print(f"Student courses: {student.courses}")
     print(f"Is honors student? {student.is_honors()}")
 
+# --------------------------------------------------------------------------------------------------------------------
+# COMPOSITION PATTERN
+
+@dataclass
+class PersonInfo:
+    name : str
+    birth_date : date
+    email: Optional[str] = None
+
+    @property
+    def age(self) -> int:
+        today = date.today()
+        return today.year - self.birth_date.year - (
+            (today.month, today.day) < (self.birth_date.month , self.birth_date.day)
+        )
+    
+@dataclass
+class TeachingStaff:           
+    person : PersonInfo       # Composition instead of Inheritance
+    employee_id : str
+    department : str
+    courses_taught : list[str] = field(default_factory = list)
+    salary : float = 0.0
+
+    @property
+    def name(self) -> str:
+        return self.person.name
+    
+    @property
+    def age(self) -> int:
+        return self.person.age
+    
+    @property
+    def email(self) -> Optional[str]:
+        return self.person.email
+    
+    def add_course(self, course: str) -> str:
+        if course not in self.courses_taught:
+            return self.courses_taught.append(course)
+        
+def demo_composition():
+    person_info = PersonInfo(
+        name="Dr. Jane Smith",
+        birth_date=date(1980, 3, 15),
+        email="jane.smith@university.edu"
+    )
+    
+    # teaching staff with person info
+    instructor = TeachingStaff(
+        person=person_info,
+        employee_id="E54321",
+        department="Mathematics",
+        courses_taught=["Calculus", "Linear Algebra"],
+        salary=78000.0,
+    )
+    
+    print("\n=== APPROACH 2: COMPOSITION ===")
+    print(f"Instructor: {instructor.name}, Age: {instructor.age}")
+    print(f"Department: {instructor.department}")
+    print(f"Email: {instructor.email}")
+    instructor.add_course("Statistics")
+    print(f"Courses taught: {instructor.courses_taught}")
+
+# -----------------------------------------------------------------------------------------------------------------
+# COMPOSITION WITH DELEGATION
+
+
+
+
 if __name__ == "__main__":
     demo_no_inheritance()
-
+    demo_composition()
