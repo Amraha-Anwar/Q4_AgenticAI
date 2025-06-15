@@ -131,8 +131,58 @@ def demo_composition():
 # COMPOSITION WITH DELEGATION
 
 
+@dataclass
+class BaseWithDefaults:
+    name: str
+    description: Optional[str] = None
 
+
+@dataclass
+class CompositionBased:
+    base: BaseWithDefaults
+    required_id: str
+    optional_value: int = 0
+    
+
+    @property
+    def name(self) -> str:
+        return self.base.name
+    
+    @property
+    def description(self) -> Optional[str]:
+        return self.base.description
+    
+    def __post_init__(self):
+        if not self.required_id.strip():
+            raise ValueError("required_id cannot be empty")
+
+
+def demo_composition_delegation():
+    try:
+        base = BaseWithDefaults(
+            name="Test Name",
+            description="Optional description"
+        )
+        
+        valid = CompositionBased(
+            base=base,
+            required_id="12345"
+        )
+        
+        print("\n=== APPROACH 3: COMPOSITION WITH DELEGATION ===")
+        print(f"Composed object: {valid}")
+        print(f"Accessing delegated properties - Name: {valid.name}, Description: {valid.description}")
+        
+
+        invalid = CompositionBased(
+            base=BaseWithDefaults(name="Invalid"),
+            required_id="",  
+        )
+        print(f"Invalid instance: {invalid}")  
+    except ValueError as e:
+        print(f"Validation error: {e}")
 
 if __name__ == "__main__":
     demo_no_inheritance()
     demo_composition()
+    demo_composition_delegation() 
