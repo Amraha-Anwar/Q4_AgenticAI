@@ -186,3 +186,24 @@ if __name__ == "__main__":
     demo_no_inheritance()
     demo_composition()
     demo_composition_delegation() 
+
+
+
+
+# OUTPUT 👇🏻
+# === APPROACH 1: STANDALONE CLASSES ===
+# Student: Alice Johnson, Age: 25, Major: Computer Science
+# Date of Birth: 2000-05-15
+# Student courses: ['Python Programming', 'Data Structures', 'Algorithms']
+# Is honors student? True
+
+# === APPROACH 2: COMPOSITION ===
+# Instructor: Dr. Jane Smith, Age: 45
+# Department: Mathematics
+# Email: jane.smith@university.edu
+# Courses taught: ['Calculus', 'Linear Algebra', 'Statistics']
+
+# === APPROACH 3: COMPOSITION WITH DELEGATION ===
+# Composed object: CompositionBased(base=BaseWithDefaults(name='Test Name', description='Optional description'), required_id='12345', optional_value=0)
+# Accessing delegated properties - Name: Test Name, Description: Optional description
+# Validation error: required_id cannot be empty
