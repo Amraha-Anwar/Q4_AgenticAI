@@ -62,3 +62,7 @@ result = Runner.run_sync(
 )
 
 print(result.final_output)
+
+
+# OUTPUT 👇🏻
+# The multiplication of 5 and 10 is 45 😈.
