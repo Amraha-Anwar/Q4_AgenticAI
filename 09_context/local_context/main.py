@@ -65,4 +65,8 @@ if __name__ == "__main__":
 # OUTPUT👇🏻
 
 # The age of the user is 25 and he is from Pakistan
+
 # I do not have access to the user's name. I can only access the user's age and location.
+# BECAUSE OF THIS 👇🏻
+# The context object is not sent to the LLM. It is purely a local object that you can read from,
+# write to and call methods on it.
