@@ -2,3 +2,4 @@
 .chainlit
 .files
 .mypy_cache
+.env
